@@ -44,11 +44,11 @@ def extract_names(filename):
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
   """
   # Extract the year using a regular expression
-  year_match = re.search(r'Popularity in (\d{4})', file_content)
+  year_match = re.search(r'Popularity in (\d{4})', filename)
   year = year_match.group(1) if year_match else 'Unknown'
   
   # Extract the table rows using regular expressions
-  rows = re.findall(r'<tr align="right"><td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>', file_content)
+  rows = re.findall(r'<tr align="right"><td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>', filename)
   
   # Create a summary text
   summary = f"{year}\n"
