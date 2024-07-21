@@ -22,7 +22,7 @@ def verbing(s):
     if(s[len(s)-3:] == "ing"):
       return s + "ly"
     else:
-        return
+        return s + "ing"
 
 
 # E. not_bad
@@ -33,11 +33,13 @@ def verbing(s):
 # Return the resulting string.
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
+import re
+
 def not_bad(s):
   if "not" in s and "bad" in s and s.find("not") < s.find("bad"):
     return re.sub(r"not.*?bad", "good", s)
   else:
-      return
+      return s
 
 
 # F. front_back
