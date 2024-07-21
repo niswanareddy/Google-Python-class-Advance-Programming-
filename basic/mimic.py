@@ -44,10 +44,6 @@ columns, so the output looks better.
 import random
 import sys
 
-def read_file(filename):
-    with open(filename, 'r') as file:
-        return file.read()
-
 def mimic_dict(filename):
   """Returns mimic dict mapping each word to list of words which follow it."""
 
