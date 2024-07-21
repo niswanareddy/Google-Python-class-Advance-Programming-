@@ -71,6 +71,7 @@ def print_mimic(mimic_dict, word):
     if not nexts:
       nexts = mimic_dict['']  # Fallback to begining of the word if not found
     word = random.choice(nexts)
+    
 
 
 # Provided main(), calls mimic_dict() and mimic()
