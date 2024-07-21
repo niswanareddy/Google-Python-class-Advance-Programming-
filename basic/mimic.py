@@ -8,7 +8,7 @@
 
 """Mimic pyquick exercise -- optional extra exercise.
 Google's Python Class
-
+s
 Read in the file specified on the command line.
 Do a simple split() on whitespace to obtain all the words in the file.
 Rather than read the file line by line, it's easier to read
@@ -43,7 +43,6 @@ columns, so the output looks better.
 
 import random
 import sys
-import re
 
 def mimic_dict(filename):
   """Returns mimic dict mapping each word to list of words which follow it."""
