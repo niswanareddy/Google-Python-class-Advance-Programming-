@@ -43,35 +43,34 @@ columns, so the output looks better.
 
 import random
 import sys
+import re
 
 def mimic_dict(filename):
   """Returns mimic dict mapping each word to list of words which follow it."""
-
-  with open(filename, 'r') as file:
-    data = file.read().rstrip()
-
-  words = data.split()
   mimic_dict = {}
-  previous_word = ''
-
+  f = open(filename, encoding='utf-8')
+  text = f.read()
+  f.close()
+  words = text.split()
+  prev = ''
   for word in words:
-    if previous_word not in mimic_dict:
-      mimic_dict[previous_word] = [word]
+    if not prev in mimic_dict:
+      mimic_dict[prev] = [word]
     else:
-      mimic_dict[previous_word].append(word)
-    previous_word = word
+      mimic_dict[prev].append(word)
+      prev = word
+    return mimic_dict
 
-  return mimic_dict
 
 
 def print_mimic(mimic_dict, word):
   """Given mimic dict and start word, prints 200 random words."""
-  for i in range(200):
+  for unused_i in range(200):
     print(word, end=' ')
-    next_words = mimic_dict.get(word, None)
-    if not next_words:
-      next_words = mimic_dict['']  # fallback to the beginning if no next word
-    word = random.choice(next_words)
+    nexts = mimic_dict.get(word)          # Returns None if not found
+    if not nexts:
+      nexts = mimic_dict['']  # Fallback to begining if not found
+    word = random.choice(nexts)
 
 
 # Provided main(), calls mimic_dict() and mimic()
